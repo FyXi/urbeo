@@ -4,8 +4,7 @@
     android:layout_height="wrap_content"
     android:minHeight="350dp"
     android:orientation="horizontal"
-    android:padding="5dip"
-    android:id="@+id/">
+    android:padding="5dip" >
 
     <TextView
         android:id="@+id/title"
