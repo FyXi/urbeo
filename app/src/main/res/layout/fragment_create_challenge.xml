@@ -80,12 +80,32 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp" />
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="IMAGE"
+            android:id="@+id/createImage"
+            android:layout_below="@+id/createBonusEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="30dp" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Upload Image"
+            android:id="@+id/createUploadImage"
+            android:layout_below="@+id/createImage"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:onClick="createChallenge" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Create Challenge"
             android:id="@+id/createChallenge"
-            android:layout_below="@+id/createBonusEdit"
+            android:layout_below="@+id/createUploadImage"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="30dp"
             android:onClick="createChallenge" />
