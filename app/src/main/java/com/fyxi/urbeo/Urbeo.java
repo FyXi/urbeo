@@ -3,6 +3,7 @@ package com.fyxi.urbeo;
 import android.app.Activity;
 import android.app.ActionBar;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.Button;
 import android.widget.ListView;
 import android.os.Build;
 import android.widget.Toast;
@@ -20,6 +22,8 @@ import java.util.ArrayList;
 
 
 public class Urbeo extends Activity {
+
+    public final static int URBEO = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,104 +52,53 @@ public class Urbeo extends Activity {
 
     private ArrayList getChallenges() {
         ArrayList challenges = new ArrayList();
-        Challenge challenge = new Challenge();
-        challenge.setHeadline("Dance of Democracy");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        //challenge.setImageSource("")
+
+        Challenge challenge = new Challenge(
+                "Dance of Democracy",
+                "Pankaj Gupta",
+                "May 26, 2013, 13:35",
+                ""
+        );
         challenges.add(challenge);
 
-        challenge = new Challenge();
-        challenge.setHeadline("Major Naxal attacks in the past");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
+        challenge = new Challenge("Major Naxal attacks in the past",
+                "Pankaj Gupta",
+                "May 26, 2013, 13:35",
+                ""
+        );
         challenges.add(challenge);
 
-        challenge = new Challenge();
-        challenge.setHeadline("BCCI suspends Gurunath pending inquiry ");
-        challenge.setReporterName("Rajiv Chandan");
-        challenge.setDate("May 26, 2013, 13:35");
+        challenge = new Challenge("BCCI suspends Gurunath pending inquiry ",
+                "Rajiv Chandan",
+                "May 26, 2013, 13:35",
+                "");
         challenges.add(challenge);
 
-        challenge = new Challenge();
-        challenge.setHeadline("Life convict can`t claim freedom after 14 yrs: SC");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
+        challenge = new Challenge("Life convict can`t claim freedom after 14 yrs: SC",
+                "Pankaj Gupta",
+                "May 26, 2013, 13:35",
+                "");
         challenges.add(challenge);
 
-        challenge = new Challenge();
-        challenge.setHeadline("Indian Army refuses to share info on soldiers mutilated at LoC");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("French soldier stabbed; link to Woolwich attack being probed");
-        challenge.setReporterName("Sudeep Nanda");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("Major Naxal attacks in the past");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("BCCI suspends Gurunath pending inquiry ");
-        challenge.setReporterName("Rajiv Chandan");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("Life convict can`t claim freedom after 14 yrs: SC");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("Indian Army refuses to share info on soldiers mutilated at LoC");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("French soldier stabbed; link to Woolwich attack being probed");
-        challenge.setReporterName("Sudeep Nanda");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("Major Naxal attacks in the past");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("BCCI suspends Gurunath pending inquiry ");
-        challenge.setReporterName("Rajiv Chandan");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("Life convict can`t claim freedom after 14 yrs: SC");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("Indian Army refuses to share info on soldiers mutilated at LoC");
-        challenge.setReporterName("Pankaj Gupta");
-        challenge.setDate("May 26, 2013, 13:35");
-        challenges.add(challenge);
-
-        challenge = new Challenge();
-        challenge.setHeadline("French soldier stabbed; link to Woolwich attack being probed");
-        challenge.setReporterName("Sudeep Nanda");
-        challenge.setDate("May 26, 2013, 13:35");
+        challenge = new Challenge("Indian Army refuses to share info on soldiers mutilated at LoC",
+                "Pankaj Gupta",
+                "May 26, 2013, 13:35",
+                "");
         challenges.add(challenge);
 
         return challenges;
+    }
+
+    public void newChallenge(View view) {
+        Intent intent = new Intent(this, CreateChallengeActivity.class);
+        startActivityForResult(intent, URBEO);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (resultCode == URBEO) {
+            Challenge challenge = new Challenge(data.getStringArrayExtra(CreateChallengeActivity.EXTRA_CHALLENGE));
+        }
     }
 
 
