@@ -1,87 +1,94 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.fyxi.urbeo.CreateChallengeActivity$PlaceholderFragment">
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WHAT"
-        android:id="@+id/createWhat"
-        android:layout_centerHorizontal="true"
-        android:textSize="30dp" />
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="com.fyxi.urbeo.CreateChallengeActivity$PlaceholderFragment">
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/createWhatEdit"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/createWhat"
-        android:layout_centerHorizontal="true" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WHAT"
+            android:id="@+id/createWhat"
+            android:layout_centerHorizontal="true"
+            android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="WHERE"
-        android:id="@+id/createWhere"
-        android:layout_below="@+id/createWhatEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createWhatEdit"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/createWhat"
+            android:layout_centerHorizontal="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/createWhereEdit"
-        android:layout_marginTop="30dp"
-        android:layout_below="@+id/createWhere"
-        android:layout_alignStart="@+id/createWhatEdit" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="WHERE"
+            android:id="@+id/createWhere"
+            android:layout_below="@+id/createWhatEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="HOW"
-        android:id="@+id/createHow"
-        android:layout_below="@+id/createWhereEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createWhereEdit"
+            android:layout_marginTop="30dp"
+            android:layout_below="@+id/createWhere"
+            android:layout_alignStart="@+id/createWhatEdit" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/createHowEdit"
-        android:layout_below="@+id/createHow"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HOW"
+            android:id="@+id/createHow"
+            android:layout_below="@+id/createWhereEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="30dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="BONUS"
-        android:id="@+id/createBonus"
-        android:layout_below="@+id/createHowEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:textSize="30dp" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createHowEdit"
+            android:layout_below="@+id/createHow"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/createBonusEdit"
-        android:layout_below="@+id/createBonus"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="BONUS"
+            android:id="@+id/createBonus"
+            android:layout_below="@+id/createHowEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:textSize="30dp" />
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Create Challenge"
-        android:id="@+id/createChallenge"
-        android:layout_below="@+id/createBonusEdit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:onClick="createChallenge" />
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/createBonusEdit"
+            android:layout_below="@+id/createBonus"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp" />
 
-</RelativeLayout>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Create Challenge"
+            android:id="@+id/createChallenge"
+            android:layout_below="@+id/createBonusEdit"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="30dp"
+            android:onClick="createChallenge" />
+
+    </RelativeLayout>
+</ScrollView>
