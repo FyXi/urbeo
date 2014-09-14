@@ -8,24 +8,28 @@ public class Challenge {
     public final static int WHERE = 1;
     public final static int HOW = 2;
     public final static int BONUS = 3;
+    public final static int IMG = 4;
 
     private String headline;
-    private String reporterName;
-    private String date;
+    private String location;
+    private String description;
+    private String bonusDescr;
     private String source;
-    
+
     public Challenge(String[] attributes) {
         setHeadline(attributes[WHAT]);
-        setReporterName(attributes[WHERE]);
-        setDate(attributes[HOW]);
-        setImageSource(attributes[BONUS]);
+        setLocation(attributes[WHERE]);
+        setDescription(attributes[HOW]);
+        setBonusDescr(attributes[BONUS]);
+        setImageSource(attributes[IMG]);
     }
 
-    public Challenge(String what, String where, String how, String bonus) {
+    public Challenge(String what, String where, String description, String bonus, String source) {
         setHeadline(what);
-        setReporterName(where);
-        setDate(how);
-        setImageSource(bonus);
+        setLocation(where);
+        setDescription(description);
+        setBonusDescr(bonus);
+        setImageSource(source);
     }
 
     public String getHeadline() {
@@ -36,20 +40,20 @@ public class Challenge {
         this.headline = headline;
     }
 
-    public String getReporterName() {
-        return reporterName;
+    public String getLocation() {
+        return location;
     }
 
-    public void setReporterName(String reporterName) {
-        this.reporterName = reporterName;
+    public void setLocation(String reporterName) {
+        this.location = reporterName;
     }
 
-    public String getDate() {
-        return date;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getImageSource() {
@@ -60,9 +64,16 @@ public class Challenge {
         this.source = source;
     }
 
+    public void setBonusDescr(String bonusDescr) { this.bonusDescr = bonusDescr; }
+
+    public String getBonusDescr() { return bonusDescr; }
+
+    /*
+     * TODO add to toString()
+     */
     @Override
     public String toString() {
-        return "[ headline=" + headline + ", reporter Name=" +
-                reporterName + " , date=" + date + "]";
+        return "[ headline=" + headline + ", location=" +
+                location + " , description=" + description + "]";
     }
 }

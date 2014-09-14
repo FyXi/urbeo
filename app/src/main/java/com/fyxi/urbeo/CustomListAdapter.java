@@ -44,24 +44,24 @@ public class CustomListAdapter extends BaseAdapter {
             convertView = layoutInflater.inflate(R.layout.challenge_unit, null);
             holder = new ViewHolder();
             holder.headlineView = (TextView) convertView.findViewById(R.id.title);
-            holder.reporterNameView = (TextView) convertView.findViewById(R.id.reporter);
-            holder.reportedDateView = (TextView) convertView.findViewById(R.id.date);
+            holder.locationView = (TextView) convertView.findViewById(R.id.location);
+            //holder.descriptionView = (TextView) convertView.findViewById(R.id.description);
             convertView.setTag(holder);
         } else {
             holder = (ViewHolder) convertView.getTag();
         }
 
         holder.headlineView.setText(((Challenge) listData.get(position)).getHeadline());
-        holder.reporterNameView.setText(((Challenge) listData.get(position)).getReporterName());
-        holder.reportedDateView.setText(((Challenge) listData.get(position)).getDate());
+        holder.locationView.setText(((Challenge) listData.get(position)).getLocation());
+        //holder.descriptionView.setText(((Challenge) listData.get(position)).getDescription());
 
         return convertView;
     }
 
     static class ViewHolder {
         TextView headlineView;
-        TextView reporterNameView;
-        TextView reportedDateView;
+        TextView locationView;
+        //TextView descriptionView;
     }
 
 }

@@ -107,7 +107,7 @@ public class CreateChallengeActivity extends Activity {
 
         Intent intent = new Intent(this, CreateChallengeActivity.class);
 
-        String[] content = new String[Challenge.BONUS + 1];
+        String[] content = new String[Challenge.IMG + 1];
         content[Challenge.WHAT] = getEditContent(R.id.createWhatEdit);
         content[Challenge.WHERE] = getEditContent(R.id.createWhereEdit);
         content[Challenge.HOW] = getEditContent(R.id.createHowEdit);

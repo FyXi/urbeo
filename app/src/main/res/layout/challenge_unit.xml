@@ -14,20 +14,20 @@
         android:textStyle="bold"
         android:typeface="sans" />
 
-    <TextView
-        android:id="@+id/reporter"
-        android:layout_gravity="bottom|right"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="5dip"
-        android:text="myReporter"
-        android:textColor="#343434"
-        android:textSize="12sp" />
+    <!--<TextView-->
+        <!--android:id="@+id/description"-->
+        <!--android:layout_gravity="bottom|right"-->
+        <!--android:layout_width="wrap_content"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_alignParentBottom="true"-->
+        <!--android:layout_alignParentRight="true"-->
+        <!--android:layout_marginTop="5dip"-->
+        <!--android:text="myReporter"-->
+        <!--android:textColor="#343434"-->
+        <!--android:textSize="12sp" />-->
 
     <TextView
-        android:id="@+id/date"
+        android:id="@+id/location"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/title"

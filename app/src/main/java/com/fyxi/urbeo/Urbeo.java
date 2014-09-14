@@ -54,37 +54,37 @@ public class Urbeo extends Activity {
         ArrayList challenges = new ArrayList();
 
         Challenge challenge = new Challenge(
-                "Dance of Democracy",
-                "Pankaj Gupta",
-                "May 26, 2013, 13:35",
-                ""
+                "Visity Rocky Steps",
+                "Philadelphia Arts Museum",
+                "Climb the classic stairs.",
+                "Wear track suit.", "./.."
         );
         challenges.add(challenge);
 
-        challenge = new Challenge("Major Naxal attacks in the past",
-                "Pankaj Gupta",
-                "May 26, 2013, 13:35",
-                ""
+        challenge = new Challenge("Eat a Philly Cheese Steak",
+                "Rocky's Diner",
+                "Order the biggest steak ever.",
+                "Make that 2.", ".."
         );
         challenges.add(challenge);
 
-        challenge = new Challenge("BCCI suspends Gurunath pending inquiry ",
-                "Rajiv Chandan",
-                "May 26, 2013, 13:35",
-                "");
+        challenge = new Challenge("Drink with a UPenn Student at their fave bar",
+                "Their fave bar",
+                "Get to know someone you don't know.",
+                "Buy them your fave drink.", "..");
         challenges.add(challenge);
-
-        challenge = new Challenge("Life convict can`t claim freedom after 14 yrs: SC",
-                "Pankaj Gupta",
-                "May 26, 2013, 13:35",
-                "");
-        challenges.add(challenge);
-
-        challenge = new Challenge("Indian Army refuses to share info on soldiers mutilated at LoC",
-                "Pankaj Gupta",
-                "May 26, 2013, 13:35",
-                "");
-        challenges.add(challenge);
+//
+//        challenge = new Challenge("Life convict can`t claim freedom after 14 yrs: SC",
+//                "Pankaj Gupta",
+//                "May 26, 2013, 13:35",
+//                "");
+//        challenges.add(challenge);
+//
+//        challenge = new Challenge("Indian Army refuses to share info on soldiers mutilated at LoC",
+//                "Pankaj Gupta",
+//                "May 26, 2013, 13:35",
+//                "");
+//        challenges.add(challenge);
 
         return challenges;
     }
