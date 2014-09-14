@@ -1,7 +1,6 @@
 package com.fyxi.urbeo;
 
 import android.app.Activity;
-import android.app.ActionBar;
 import android.app.Fragment;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,9 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
-import android.os.Build;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -135,7 +132,7 @@ public class Urbeo extends Activity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.list_row_layout, container, false);
+            View rootView = inflater.inflate(R.layout.challenge_unit, container, false);
             return rootView;
         }
     }
