@@ -24,9 +24,7 @@ public class CreateChallengeActivity extends Activity {
 
     public final static String EXTRA_CHALLENGE = "com.fyxi.urbeo.CHALLENGE";
 
-    private final static int SELECT_PICTURE = 1;
-    private String selectedImagePath;
-    private String fileManagerString;
+    static final int REQUEST_IMAGE_GET = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,69 +35,6 @@ public class CreateChallengeActivity extends Activity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-    }
-
-    public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == RESULT_OK) {
-            if (requestCode == SELECT_PICTURE) {
-                Uri selectedImageUri = data.getData();
-                Log.d("URI VAL", "selectedImageUri = " + selectedImageUri.toString());
-                selectedImagePath = getPath(selectedImageUri);
-
-                if(selectedImagePath!=null){
-                    // IF LOCAL IMAGE, NO MATTER IF ITS DIRECTLY FROM GALLERY (EXCEPT PICASSA ALBUM),
-                    // OR OI/ASTRO FILE MANAGER. EVEN DROPBOX IS SUPPORTED BY THIS BECAUSE DROPBOX DOWNLOAD THE IMAGE
-                    // IN THIS FORM - file:///storage/emulated/0/Android/data/com.dropbox.android/...
-                    System.out.println("local image");
-                }
-                else{
-                    System.out.println("picasa image!");
-                    loadPicasaImageFromGallery(selectedImageUri);
-                }
-            }
-        }
-    }
-
-    // NEW METHOD FOR PICASA IMAGE LOAD
-    private void loadPicasaImageFromGallery(final Uri uri) {
-        String[] projection = {  MediaStore.MediaColumns.DATA, MediaStore.MediaColumns.DISPLAY_NAME };
-        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-        if(cursor != null) {
-            cursor.moveToFirst();
-
-            int columnIndex = cursor.getColumnIndex(MediaStore.MediaColumns.DISPLAY_NAME);
-            if (columnIndex != -1) {
-                new Thread(new Runnable() {
-                    // NEW THREAD BECAUSE NETWORK REQUEST WILL BE MADE THAT WILL BE A LONG PROCESS & BLOCK UI
-                    // IF CALLED IN UI THREAD
-                    public void run() {
-                        try {
-                            Bitmap bitmap = android.provider.MediaStore.Images.Media.getBitmap(getContentResolver(), uri);
-                            // THIS IS THE BITMAP IMAGE WE ARE LOOKING FOR.
-                        } catch (Exception ex) {
-                            ex.printStackTrace();
-                        }
-                    }
-                }).start();
-            }
-        }
-        cursor.close();
-    }
-
-    public String getPath(Uri uri) {
-        String[] projection = {  MediaStore.MediaColumns.DATA};
-        Cursor cursor = getContentResolver().query(uri, projection, null, null, null);
-        if(cursor != null) {
-            //HERE YOU WILL GET A NULLPOINTER IF CURSOR IS NULL
-            //THIS CAN BE, IF YOU USED OI FILE MANAGER FOR PICKING THE MEDIA
-            cursor.moveToFirst();
-            int columnIndex = cursor.getColumnIndexOrThrow(MediaStore.MediaColumns.DATA);
-            String filePath = cursor.getString(columnIndex);
-            cursor.close();
-            return filePath;
-        }
-        else
-            return uri.getPath();               // FOR OI/ASTRO/Dropbox etc
     }
 
     public void createChallenge(View view) {
@@ -157,13 +92,24 @@ public class CreateChallengeActivity extends Activity {
 
             ((Button) rootView.findViewById(R.id.createUploadImage)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View arg0) {
-                    Intent intent = new Intent();
+                    CreateChallengeActivity activity = (CreateChallengeActivity) getActivity();
+                    Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
                     intent.setType("image/*");
-                    intent.setAction(Intent.ACTION_GET_CONTENT);
-                    startActivityForResult(Intent.createChooser(intent, "Select Picture"), SELECT_PICTURE);
+                    if (intent.resolveActivity(activity.getPackageManager()) != null) {
+                        startActivityForResult(intent, REQUEST_IMAGE_GET);
+                    }
                 }
             });
+
             return rootView;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == REQUEST_IMAGE_GET && resultCode == RESULT_OK) {
+            Bitmap thumbnail = data.getParcelableExtra("data");
+            Uri fullPhotoUri = data.getData();
         }
     }
 }
