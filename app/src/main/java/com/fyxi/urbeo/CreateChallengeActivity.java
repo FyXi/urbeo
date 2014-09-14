@@ -31,7 +31,7 @@ public class CreateChallengeActivity extends Activity {
     public void createChallenge(View view) {
         getIntent();
 
-        Intent intent = new Intent(this, Urbeo.class);
+        Intent intent = new Intent(this, CreateChallengeActivity.class);
 
         String[] content = new String[Challenge.BONUS + 1];
         content[Challenge.WHAT] = getEditContent(R.id.createWhatEdit);

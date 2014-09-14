@@ -24,6 +24,8 @@ import java.util.ArrayList;
 public class Urbeo extends Activity {
 
     public final static int URBEO = 0;
+    ArrayList<Challenge> challenges;
+    CustomListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +37,10 @@ public class Urbeo extends Activity {
 //                    .commit();
 //        }
 
-        ArrayList challenges = getChallenges();
+        challenges = getChallenges();
         final ListView lv1 = (ListView) findViewById(R.id.custom_list);
-        lv1.setAdapter(new CustomListAdapter(this, challenges));
+        adapter = new CustomListAdapter(this, challenges);
+        lv1.setAdapter(adapter);
 
         lv1.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -96,9 +99,9 @@ public class Urbeo extends Activity {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (resultCode == URBEO) {
-            Challenge challenge = new Challenge(data.getStringArrayExtra(CreateChallengeActivity.EXTRA_CHALLENGE));
-        }
+        Challenge challenge = new Challenge(data.getStringArrayExtra(CreateChallengeActivity.EXTRA_CHALLENGE));
+        challenges.add(challenge);
+        adapter.notifyDataSetChanged();
     }
 
 
